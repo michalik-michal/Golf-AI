@@ -10,22 +10,17 @@ import Foundation
 class HomeViewModel: ObservableObject {
 
     let service = GPTService()
+    let connector = OpenAIConnector()
     @Published var conversation = [MessageModel]()
     
     init() {
         service.setUp()
     }
-    
+
     func send(message: String) {
-        Task {
-            do {
-                await service.send(text: message) { result in
-                    DispatchQueue.main.async {
-                        self.conversation.append(MessageModel(messageType: .user, message: message))
-                        self.conversation.append(MessageModel(messageType: .ai, message: result.trimmingCharacters(in: .whitespaces)))
-                    }
-                }
-            }
-        }
+        connector.logMessage(message, messageUserType: .user)
+        connector.sendToAssistant()
+        self.conversation.append(MessageModel(messageType: .user, message: message))
+        self.conversation.append(MessageModel(messageType: .ai, message: connector.messageLog.last?["content"] ?? ""))
     }
 }
