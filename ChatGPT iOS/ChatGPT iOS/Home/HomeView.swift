@@ -7,6 +7,18 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                Button {
+                    viewModel.conversation = []
+                } label: {
+                    Image(systemName: "trash")
+                        .resizable()
+                        .foregroundColor(.white)
+                        .frame(width: 20, height: 23)
+                }
+            }
+            .padding(.horizontal)
             Divider()
             ScrollView {
                 VStack(spacing: 0) {
@@ -14,9 +26,13 @@ struct HomeView: View {
                         MessageView(model: conversation)
                     }
                 }
+                if viewModel.requestState == .inProgress {
+                    ProgressView()
+                        .frame(width: .infinity, height: .infinity)
+                }
             }
             HStack {
-                TextField("Type here...", text: $text)
+                CustomTextField(placeholderText: "Type here...", text: $text)
                     .foregroundColor(.white)
                 Button {
                     viewModel.send(message: text)
@@ -24,6 +40,8 @@ struct HomeView: View {
                 } label: {
                     if !text.isEmpty {
                         Image(systemName: "paperplane")
+                            .resizable()
+                            .frame(width: 23, height: 23)
                             .foregroundColor(.white)
                     }
                 }

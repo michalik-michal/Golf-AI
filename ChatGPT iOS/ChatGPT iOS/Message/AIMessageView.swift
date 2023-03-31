@@ -13,7 +13,7 @@ struct AIMessageView: View {
     @State private var opacity = 0.0
     
     var body: some View {
-        HStack() {
+        HStack(alignment: .top) {
             Circle()
                 .foregroundColor(.green)
                 .frame(width: 30)
