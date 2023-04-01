@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6B19601729D7429400922B7F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B19601629D7429400922B7F /* CustomTextField.swift */; };
+		6B19601A29D8322C00922B7F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6B19601929D8322C00922B7F /* Lottie */; };
+		6B19601D29D8335D00922B7F /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B19601C29D8335D00922B7F /* LottieView.swift */; };
+		6B19601F29D834DF00922B7F /* typingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B19601E29D834DF00922B7F /* typingAnimation.json */; };
 		6B404F1529D4983200A09834 /* ChatGPT_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B404F1429D4983200A09834 /* ChatGPT_iOSApp.swift */; };
 		6B404F1729D4983200A09834 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B404F1629D4983200A09834 /* HomeView.swift */; };
 		6B404F1929D4983300A09834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B404F1829D4983300A09834 /* Assets.xcassets */; };
@@ -45,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		6B19601629D7429400922B7F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		6B19601C29D8335D00922B7F /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		6B19601E29D834DF00922B7F /* typingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = typingAnimation.json; path = ../../../typingAnimation.json; sourceTree = "<group>"; };
 		6B404F1129D4983200A09834 /* ChatGPT iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ChatGPT iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B404F1429D4983200A09834 /* ChatGPT_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPT_iOSApp.swift; sourceTree = "<group>"; };
 		6B404F1629D4983200A09834 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -71,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B404F4029D498B700A09834 /* OpenAIKit in Frameworks */,
+				6B19601A29D8322C00922B7F /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +105,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		6B19601B29D8334E00922B7F /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				6B19601E29D834DF00922B7F /* typingAnimation.json */,
+				6B19601C29D8335D00922B7F /* LottieView.swift */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		6B404F0829D4983200A09834 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +137,7 @@
 		6B404F1329D4983200A09834 /* ChatGPT iOS */ = {
 			isa = PBXGroup;
 			children = (
+				6B19601B29D8334E00922B7F /* Lottie */,
 				6B19601529D7428500922B7F /* Components */,
 				6B404F1429D4983200A09834 /* ChatGPT_iOSApp.swift */,
 				6B404F5129D5F43F00A09834 /* Service */,
@@ -206,6 +222,7 @@
 			name = "ChatGPT iOS";
 			packageProductDependencies = (
 				6B404F3F29D498B700A09834 /* OpenAIKit */,
+				6B19601929D8322C00922B7F /* Lottie */,
 			);
 			productName = "ChatGPT iOS";
 			productReference = 6B404F1129D4983200A09834 /* ChatGPT iOS.app */;
@@ -281,6 +298,7 @@
 			mainGroup = 6B404F0829D4983200A09834;
 			packageReferences = (
 				6B404F3E29D498B700A09834 /* XCRemoteSwiftPackageReference "openai-kit" */,
+				6B19601829D8322C00922B7F /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 6B404F1229D4983200A09834 /* Products */;
 			projectDirPath = "";
@@ -298,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B19601F29D834DF00922B7F /* typingAnimation.json in Resources */,
 				6B404F1C29D4983300A09834 /* Preview Assets.xcassets in Resources */,
 				6B404F1929D4983300A09834 /* Assets.xcassets in Resources */,
 			);
@@ -335,6 +354,7 @@
 				6B404F5729D5F6F800A09834 /* OpenAIConnector.swift in Sources */,
 				6B404F4A29D5A8AD00A09834 /* UserMessageView.swift in Sources */,
 				6B404F5529D5F6E200A09834 /* OpenAIResponseHandler.swift in Sources */,
+				6B19601D29D8335D00922B7F /* LottieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +512,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"ChatGPT iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 3P5872A6DS;
 				ENABLE_PREVIEWS = YES;
@@ -521,6 +542,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"ChatGPT iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 3P5872A6DS;
 				ENABLE_PREVIEWS = YES;
@@ -661,6 +683,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6B19601829D8322C00922B7F /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		6B404F3E29D498B700A09834 /* XCRemoteSwiftPackageReference "openai-kit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dylanshine/openai-kit.git";
@@ -672,6 +702,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6B19601929D8322C00922B7F /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B19601829D8322C00922B7F /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		6B404F3F29D498B700A09834 /* OpenAIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6B404F3E29D498B700A09834 /* XCRemoteSwiftPackageReference "openai-kit" */;

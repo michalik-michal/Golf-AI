@@ -18,7 +18,7 @@ class HomeViewModel: ObservableObject {
             self.connector.sendToAssistant()
             self.requestState = .inProgress
             self.conversation.append(MessageModel(messageType: .user, message: message))
-            self.conversation.append(MessageModel(messageType: .ai, message: self.connector.messageLog.last?["content"] ?? ""))
+            self.conversation.append(MessageModel(messageType: .ai, message: self.connector.messageLog.last?["content"] ?? "Something went wrong"))
             self.requestState = .completed
         }
     }

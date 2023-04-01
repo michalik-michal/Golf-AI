@@ -26,7 +26,8 @@ struct HomeView: View {
                         MessageView(model: conversation)
                     }
                     if viewModel.requestState == .inProgress {
-                        Circle()
+                        LottieView(name: "typingAnimation")
+                            .frame(width: 100, height: 100)
                     }
                 }
             }
@@ -45,6 +46,7 @@ struct HomeView: View {
                     }
                 }
             }
+            .padding(.top)
             .padding(.horizontal)
         }
         .background(Color("background"))
