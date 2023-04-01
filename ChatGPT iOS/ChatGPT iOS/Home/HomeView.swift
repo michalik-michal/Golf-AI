@@ -25,10 +25,9 @@ struct HomeView: View {
                     ForEach(viewModel.conversation) { conversation in
                         MessageView(model: conversation)
                     }
-                }
-                if viewModel.requestState == .inProgress {
-                    ProgressView()
-                        .frame(width: .infinity, height: .infinity)
+                    if viewModel.requestState == .inProgress {
+                        Circle()
+                    }
                 }
             }
             HStack {

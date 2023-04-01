@@ -5,8 +5,7 @@ class OpenAIConnector: ObservableObject {
     let openAIURL = URL(string: "https://api.openai.com/v1/chat/completions")
     let openAIKey = "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"
     
-    @Published var messageLog: [[String: String]] = [["role": "system",  "content": "You're a friendly, helpful assistant"]]
-    @Published var requestState: RequestState = .null
+    @Published var messageLog: [[String: String]] = [["role": "system",  "content": "You're a friendly, assistant"]]
 
     func sendToAssistant() {
         var request = URLRequest(url: self.openAIURL!)
@@ -48,7 +47,6 @@ extension String: Identifiable { public var id: UUID { UUID() } }
 
 extension OpenAIConnector {
     private func executeRequest(request: URLRequest, withSessionConfig sessionConfig: URLSessionConfiguration?) -> Data? {
-        requestState = .inProgress
         let semaphore = DispatchSemaphore(value: 0)
         let session: URLSession
         if (sessionConfig != nil) {
@@ -61,7 +59,6 @@ extension OpenAIConnector {
             if error != nil {
                 print("error: \(error!.localizedDescription): \(error!.localizedDescription)")
             } else if data != nil {
-                self.requestState = .completed
                 requestData = data
             }
             

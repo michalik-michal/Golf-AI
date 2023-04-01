@@ -12,11 +12,14 @@ class HomeViewModel: ObservableObject {
     }
 
     func send(message: String) {
-        requestState = connector.requestState
-        connector.logMessage(message, messageUserType: .user)
-        connector.sendToAssistant()
-        requestState = connector.requestState
-        self.conversation.append(MessageModel(messageType: .user, message: message))
-        self.conversation.append(MessageModel(messageType: .ai, message: connector.messageLog.last?["content"] ?? ""))
+        requestState = .inProgress
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            self.connector.logMessage(message, messageUserType: .user)
+            self.connector.sendToAssistant()
+            self.requestState = .inProgress
+            self.conversation.append(MessageModel(messageType: .user, message: message))
+            self.conversation.append(MessageModel(messageType: .ai, message: self.connector.messageLog.last?["content"] ?? ""))
+            self.requestState = .completed
+        }
     }
 }
