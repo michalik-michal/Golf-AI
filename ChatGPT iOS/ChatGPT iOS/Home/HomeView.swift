@@ -46,8 +46,7 @@ struct HomeView: View {
                     }
                 }
             }
-            .padding(.top)
-            .padding(.horizontal)
+            .padding()
         }
         .background(Color("background"))
     }
