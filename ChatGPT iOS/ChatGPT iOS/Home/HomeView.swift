@@ -41,7 +41,7 @@ struct HomeView: View {
                     if !text.isEmpty {
                         Image(systemName: "paperplane")
                             .resizable()
-                            .frame(width: 23, height: 23)
+                            .frame(width: 21, height: 21)
                             .foregroundColor(.white)
                     }
                 }

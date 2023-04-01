@@ -1,10 +1,3 @@
-//
-//  UserMessageView.swift
-//  ChatGPT iOS
-//
-//  Created by Michal Michalik on 30/03/2023.
-//
-
 import SwiftUI
 
 struct UserMessageView: View {
@@ -16,6 +9,7 @@ struct UserMessageView: View {
         HStack(alignment: .top) {
             Spacer()
             Text(message)
+                .offset(y: 4)
             Circle()
                 .foregroundColor(.green)
                 .frame(width: 30)

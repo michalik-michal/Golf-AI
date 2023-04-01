@@ -1,10 +1,3 @@
-//
-//  HomeViewModel.swift
-//  ChatGPT iOS
-//
-//  Created by Michal Michalik on 30/03/2023.
-//
-
 import SwiftUI
 
 class HomeViewModel: ObservableObject {

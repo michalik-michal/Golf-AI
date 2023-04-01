@@ -11,7 +11,7 @@ struct CustomTextField: View {
             TextField(placeholderText, text: $text)
                 .padding()
         }
-        .frame(height: 55)
+        .frame(height: 50)
         .cornerRadius(12)
     }
 }

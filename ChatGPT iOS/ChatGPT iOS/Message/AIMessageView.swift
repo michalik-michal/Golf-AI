@@ -1,10 +1,3 @@
-//
-//  AIMessageView.swift
-//  ChatGPT iOS
-//
-//  Created by Michal Michalik on 30/03/2023.
-//
-
 import SwiftUI
 
 struct AIMessageView: View {
@@ -21,6 +14,7 @@ struct AIMessageView: View {
                     Text("AI")
                 }
             Text(message)
+                .offset(y: 4)
             Spacer()
         }
         .opacity(opacity)
