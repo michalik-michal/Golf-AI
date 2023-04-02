@@ -3,7 +3,7 @@ import Combine
 
 class OpenAIConnector: ObservableObject {
     let openAIURL = URL(string: "https://api.openai.com/v1/chat/completions")
-    let openAIKey = "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"
+    let openAIKey = YOUR APIKEY
     
     @Published var messageLog: [[String: String]] = [["role": "system",  "content": "You're a friendly, assistant"]]
 
