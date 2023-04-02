@@ -3,7 +3,7 @@ import Combine
 
 class OpenAIConnector: ObservableObject {
     let openAIURL = URL(string: "https://api.openai.com/v1/chat/completions")
-    let openAIKey = YOUR APIKEY
+    let openAIKey = YOUR API KEY
     
     @Published var messageLog: [[String: String]] = [["role": "system",  "content": "You're a friendly, assistant"]]
 
@@ -33,7 +33,7 @@ class OpenAIConnector: ObservableObject {
             let jsonStr = String(data: requestData, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))!
             print(jsonStr)
             let responseHandler = OpenAIResponseHandler()
-            logMessage((responseHandler.decodeJson(jsonString: jsonStr)?.choices[0].message["content"])!, messageUserType: .assistant)
+            logMessage((responseHandler.decodeJson(jsonString: jsonStr)?.choices[0].message["content"]) ?? "We encountered some error", messageUserType: .assistant)
 
         }
 

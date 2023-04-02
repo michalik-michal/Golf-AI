@@ -2,14 +2,11 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject {
 
-    let service = GPTService()
     @ObservedObject var connector = OpenAIConnector()
     @Published var conversation = [MessageModel]()
     @Published var requestState: RequestState = .null
     
-    init() {
-        service.setUp()
-    }
+    init() {}
 
     func send(message: String) {
         requestState = .inProgress
