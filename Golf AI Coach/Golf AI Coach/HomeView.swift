@@ -11,7 +11,9 @@ struct HomeView: View {
         case .null:
             InitialView(selectedClub: $selectedClub, issueText: $issueText, requestState: $requestState)
         case .inProgress:
-            Text("LOADING")
+            LottieView(name: "loadingAnimation")
+                .scaleEffect(0.7)
+                .background(.black)
         case .compleated:
             ResultView(requestState: $requestState)
         }
