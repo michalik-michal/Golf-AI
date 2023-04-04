@@ -4,51 +4,17 @@ struct HomeView: View {
     
     @State private var issueText = ""
     @State private var selectedClub = ""
-    @FocusState private var focusTextEditor: Bool
+    @State private var requestState: RequestState = .null
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text("Golf AI")
-                    .font(.largeTitle)
-                    .bold()
-                    .foregroundColor(Color("CustomGreen"))
-                Spacer()
-                Button {
-                    // Reset
-                } label: {
-                    Image(systemName: "trash")
-                        .resizable()
-                        .frame(width: 22, height: 24)
-                }
-                .padding(.horizontal)
-            }
-            Divider()
-                .overlay(.white)
-            ClubCellStack(selectedClub: $selectedClub)
-            Text("Describe the issue")
-                .font(.title)
-                .bold()
-            TextEditor(text: $issueText)
-                .scrollContentBackground(.hidden)
-                .background(Color("CustomGreen").opacity(0.5))
-                .cornerRadius(12)
-                .frame(height: 130)
-                .focused($focusTextEditor)
-            Spacer()
-            Button {
-                focusTextEditor = false
-            } label: {
-                Text("Done")
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 50)
-                    .background(Color("CustomGreen"))
-                    .cornerRadius(12)
-            }
-            .padding(.bottom, 10)
+        switch requestState {
+        case .null:
+            InitialView(selectedClub: $selectedClub, issueText: $issueText, requestState: $requestState)
+        case .inProgress:
+            Text("LOADING")
+        case .compleated:
+            ResultView(requestState: $requestState)
         }
-        .background(.black)
-        .foregroundColor(.white)
     }
 }
 
