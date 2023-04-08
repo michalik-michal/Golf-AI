@@ -23,31 +23,35 @@ struct ResultView: View {
             }
             Divider()
                 .overlay(.white)
-            ScrollView {
-                VStack(alignment: .leading) {
-                    Text("What to do?")
-                        .padding(.bottom)
-                        .font(.title.bold())
-                    Text(mockResponse)
-                        .font(.headline)
-                    Button {
-                        requestState = .null
-                    } label: {
-                        Text("Done")
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 50)
-                            .background(Color("CustomGreen"))
-                            .cornerRadius(12)
-                    }
-                    .padding(.bottom, 10)
-                    .padding(.top, 20)
-                }
-            }
+            responseView
             Spacer()
 
         }
         .background(.black)
         .foregroundColor(.white)
+    }
+
+    private var responseView: some View {
+        ScrollView {
+            VStack(alignment: .leading) {
+                Text("What to do?")
+                    .padding(.bottom)
+                    .font(.title.bold())
+                Text(mockResponse)
+                    .font(.headline)
+                Button {
+                    requestState = .null
+                } label: {
+                    Text("Done")
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(Color("CustomGreen"))
+                        .cornerRadius(12)
+                }
+                .padding(.bottom, 10)
+                .padding(.top, 20)
+            }
+        }
     }
 }
 

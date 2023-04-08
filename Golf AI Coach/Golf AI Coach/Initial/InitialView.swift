@@ -31,37 +31,44 @@ struct InitialView: View {
             Text("Describe the issue")
                 .font(.title)
                 .bold()
-            TextEditor(text: $issueText)
-                .scrollContentBackground(.hidden)
-                .background(Color("CustomGreen").opacity(0.5))
-                .cornerRadius(12)
-                .frame(height: 130)
-                .focused($focusTextEditor)
-                .toolbar {
-                    ToolbarItem(placement: .keyboard) {
-                        Button {
-                            focusTextEditor = false
-                        } label: {
-                            Text("Done")
-                        }
-
-                    }
-                }
+            textView
             Spacer()
-            Button {
-                focusTextEditor = false
-                requestState = .compleated
-            } label: {
-                Text("Submit")
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 50)
-                    .background(Color("CustomGreen"))
-                    .cornerRadius(12)
-            }
-            .padding(.bottom, 10)
+            submitButton
         }
         .background(.black)
         .foregroundColor(.white)
+    }
+
+    private var textView: some View {
+        TextEditor(text: $issueText)
+            .scrollContentBackground(.hidden)
+            .background(Color("CustomGreen").opacity(0.5))
+            .cornerRadius(12)
+            .frame(height: 130)
+            .focused($focusTextEditor)
+            .toolbar {
+                ToolbarItem(placement: .keyboard) {
+                    Button {
+                        focusTextEditor = false
+                    } label: {
+                        Text("Done")
+                    }
+                }
+            }
+    }
+
+    private var submitButton: some View {
+        Button {
+            focusTextEditor = false
+            requestState = .compleated
+        } label: {
+            Text("Submit")
+                .frame(maxWidth: .infinity)
+                .frame(height: 50)
+                .background(Color("CustomGreen"))
+                .cornerRadius(12)
+        }
+        .padding(.bottom, 10)
     }
 }
 
