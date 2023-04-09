@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct ResultView: View {
-    
+
     @Binding var requestState: RequestState
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -25,7 +25,6 @@ struct ResultView: View {
                 .overlay(.white)
             responseView
             Spacer()
-
         }
         .background(.black)
         .foregroundColor(.white)

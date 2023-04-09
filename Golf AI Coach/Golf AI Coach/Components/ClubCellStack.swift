@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct ClubCellStack: View {
-    
+
     @Binding var selectedClub: String
-    
+
     var clubs = ["Driver", "Iron", "Wedge", "Putter"]
-    
+
     var body: some View {
         Text("Select Club")
             .font(.title.bold())

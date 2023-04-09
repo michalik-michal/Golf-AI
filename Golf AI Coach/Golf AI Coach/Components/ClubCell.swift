@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct ClubCell: View {
-    
+
     var clubName: String
-    
+
     var body: some View {
         Text(clubName)
             .padding(8)
